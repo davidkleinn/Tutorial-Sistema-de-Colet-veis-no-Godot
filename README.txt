@@ -29,4 +29,4 @@ O projeto foi construído priorizando boas práticas de programação orientada 
 1. Certifique-se de ter a [Godot Engine 4.2+](https://godotengine.org/download) instalada na sua máquina.
 2. Clone este repositório:
    ```bash
-   git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
+   git clone [https://github.com/davidkleinn/Tutorial-Sistema-de-Colet-veis-no-Godot.git]
