@@ -1,66 +1,32 @@
-Pixelify Sans Variable Font
-===========================
+# 🪙 Godot Coin Collector: Pontuação, Combos e Game Feel
 
-This download contains Pixelify Sans as both a variable font and static fonts.
+![Godot Engine](https://img.shields.io/badge/Godot_4.2.1-Blue?logo=godot-engine&logoColor=white)
+![GDScript](https://img.shields.io/badge/GDScript-Standard-green)
+![Status](https://img.shields.io/badge/Status-Concluído-success)
 
-Pixelify Sans is a variable font with this axis:
-  wght
+## 📌 Sobre o Projeto
+Este protótipo foi desenvolvido como parte de um estudo prático sobre mecânicas de interface e feedback visual na **Godot Engine 4**. O foco do projeto não é apenas a coleta de itens, mas a implementação de sistemas subjacentes robustos, como gerenciamento de estado temporal (combos) e comunicação desacoplada entre a lógica do jogo e a interface de usuário (HUD).
 
-This means all the styles are contained in a single file:
-  PixelifySans-VariableFont_wght.ttf
+🎥 **[Assista ao vídeo de demonstração da mecânica aqui] (COLOQUE O LINK DO SEU VÍDEO AQUI)**
 
-If your app fully supports variable fonts, you can now pick intermediate styles
-that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for Pixelify Sans:
-  static/PixelifySans-Regular.ttf
-  static/PixelifySans-Medium.ttf
-  static/PixelifySans-SemiBold.ttf
-  static/PixelifySans-Bold.ttf
+## ⚙️ Destaques Técnicos e Arquitetura
 
-Get started
------------
+O projeto foi construído priorizando boas práticas de programação orientada a objetos e separação de responsabilidades:
 
-1. Install the font files you want to use
+* **Sistema de Combo Independente de Frame Rate:** A lógica de decaimento do tempo de combo utiliza a variável `delta` do loop `_process`, garantindo que a janela de 3 segundos seja matematicamente precisa em qualquer hardware.
+* **Comunicação Orientada a Eventos (Signals):** Os objetos coletáveis (`Area2D`) utilizam sinais (`_on_body_entered`) para notificar o jogador sobre a colisão, evitando o acoplamento forte entre os nós da cena.
+* **Desacoplamento de UI:** O *Heads-Up Display* (HUD) foi construído utilizando um `CanvasLayer`, garantindo que a renderização da interface gráfica seja executada em uma camada independente da câmera e da física do mundo 2D.
+* **Feedback Visual Procedural (Tweens):** Em vez de depender exclusivamente de animações em *spritesheets*, o feedback de coleta da moeda (flutuação e *fade out*) foi programado matematicamente utilizando a classe `Tween`, manipulando as propriedades de posição e canal *Alpha* de forma assíncrona.
 
-2. Use your app's font picker to view the font family and all the
-available styles
+## 🎮 Mecânicas Implementadas
+1. **Física e Movimentação:** Controle de personagem 2D com gravidade, pulo e detecção de solo.
+2. **Sistema de Pontuação (Score):** Atualização dinâmica via interface gráfica.
+3. **Multiplicador de Combo:** Janela de tempo de 3 segundos entre coletas para aumentar o multiplicador de pontos. Esgotado o tempo, o estado retorna ao valor base (x1).
+4. **Juice & Game Feel:** Animações responsivas baseadas no estado do jogador (Idle, Run, Jump) e interpolações de saída para os coletáveis.
 
-Learn more about variable fonts
--------------------------------
+## 🚀 Como Executar Localmente
 
-  https://developers.google.com/web/fundamentals/design-and-ux/typography/variable-fonts
-  https://variablefonts.typenetwork.com
-  https://medium.com/variable-fonts
-
-In desktop apps
-
-  https://theblog.adobe.com/can-variable-fonts-illustrator-cc
-  https://helpx.adobe.com/nz/photoshop/using/fonts.html#variable_fonts
-
-Online
-
-  https://developers.google.com/fonts/docs/getting_started
-  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide
-  https://developer.microsoft.com/en-us/microsoft-edge/testdrive/demos/variable-fonts
-
-Installing fonts
-
-  MacOS: https://support.apple.com/en-us/HT201749
-  Linux: https://www.google.com/search?q=how+to+install+a+font+on+gnu%2Blinux
-  Windows: https://support.microsoft.com/en-us/help/314960/how-to-install-or-remove-a-font-in-windows
-
-Android Apps
-
-  https://developers.google.com/fonts/docs/android
-  https://developer.android.com/guide/topics/ui/look-and-feel/downloadable-fonts
-
-License
--------
-Please read the full license text (OFL.txt) to understand the permissions,
-restrictions and requirements for usage, redistribution, and modification.
-
-You can use them in your products & projects – print or digital,
-commercial or otherwise.
-
-This isn't legal advice, please consider consulting a lawyer and see the full
-license for all details.
+1. Certifique-se de ter a [Godot Engine 4.2+](https://godotengine.org/download) instalada na sua máquina.
+2. Clone este repositório:
+   ```bash
+   git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
