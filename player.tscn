@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://cegh0muwneipk"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_o8tqs"]
+[ext_resource type="Texture2D" uid="uid://oko01neueicm" path="res://Tiles/Characters/tile_0000.png" id="2_1x4us"]
+[ext_resource type="Texture2D" uid="uid://d2n4j84tak4a5" path="res://Tiles/Characters/tile_0001.png" id="3_j5xh2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8aqu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1x4us")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_j5xh2")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1x4us")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j5xh2")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwfuq"]
+size = Vector2(114, 116)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_o8tqs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_n8aqu")
+animation = &"jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("RectangleShape2D_mwfuq")
+one_way_collision_margin = 0.0

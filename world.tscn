@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://di430ugmbojoe"]
+
+[ext_resource type="Texture2D" uid="uid://7dj2tf6vakac" path="res://backgroundColorForest.png" id="1_cs4e0"]
+[ext_resource type="PackedScene" uid="uid://cegh0muwneipk" path="res://player.tscn" id="1_tiv0k"]
+[ext_resource type="PackedScene" uid="uid://cymbknoy6im7b" path="res://hud.tscn" id="2_3dxlx"]
+[ext_resource type="PackedScene" uid="uid://dvu6m4oxw0w1w" path="res://coin.tscn" id="3_ltct6"]
+[ext_resource type="Texture2D" uid="uid://br67j8mglt64t" path="res://Tiles/tile_0002.png" id="5_8gank"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8gfy"]
+size = Vector2(1152, 133.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0faf7"]
+size = Vector2(95, 649.281)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12we4"]
+size = Vector2(90, 649.281)
+
+[node name="World" type="Node2D"]
+scale = Vector2(0.556, 0.556)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -14.0
+offset_top = -153.0
+offset_right = 1167.0
+offset_bottom = 871.0
+texture = ExtResource("1_cs4e0")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("1_tiv0k")]
+position = Vector2(101, 403)
+
+[node name="HUD" parent="." instance=ExtResource("2_3dxlx")]
+
+[node name="Coin" parent="." instance=ExtResource("3_ltct6")]
+position = Vector2(400, 420)
+
+[node name="Coin2" parent="." instance=ExtResource("3_ltct6")]
+position = Vector2(500, 350)
+
+[node name="Coin3" parent="." instance=ExtResource("3_ltct6")]
+position = Vector2(600, 315)
+
+[node name="Coin4" parent="." instance=ExtResource("3_ltct6")]
+position = Vector2(700, 350)
+
+[node name="Coin5" parent="." instance=ExtResource("3_ltct6")]
+position = Vector2(800, 420)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(575.54, 580.935)
+shape = SubResource("RectangleShape2D_y8gfy")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(3.05176e-05, 17.9856)
+scale = Vector2(63.749, 9.19265)
+texture = ExtResource("5_8gank")
+region_rect = Rect2(0, 0, 1200, 50)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1197.84, 323.741)
+shape = SubResource("RectangleShape2D_0faf7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-45, 324.64)
+shape = SubResource("RectangleShape2D_12we4")
